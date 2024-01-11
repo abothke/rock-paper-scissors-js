@@ -15,6 +15,8 @@ const scoreOfRound = document.querySelector("#scoreRound")
 const domPlayerScore = document.querySelector("#playerScore")
 const domCpuScore = document.querySelector("#cpuScore")
 const domRounds = document.querySelector("#rounds")
+const domPlayerWeapon = document.querySelector("#player")
+const domCpuWeapon = document.querySelector("#computer")
 
 document.querySelectorAll("input[type='radio']").forEach((el) =>{
     el.addEventListener("change", () =>{
@@ -25,7 +27,7 @@ document.querySelectorAll("input[type='radio']").forEach((el) =>{
 
 document.querySelectorAll("[id^=ch-]").forEach((el) =>{
     el.addEventListener("click", () =>{
-    playerWeapon = el.id.slice(3,10)
+    playerWeapon = el.id.replace("ch-", "")
     console.log(`Du hast ${playerWeapon} ausgewählt`);
     startGame(rounds, playerWeapon)
     })
@@ -37,6 +39,8 @@ const startGame = (rounds, playerWeapon) => {
     console.log(`Computer hat ${botWeapon} ausgewählt`);
     console.log(`${win[playerWeapon]} gewinnt gegen deine Waffe`);
     domRounds.textContent = `${currentRound} / ${rounds}`
+    domPlayerWeapon.className = playerWeapon
+    domCpuWeapon.className = botWeapon
     if (currentRound != rounds){
     if (win[playerWeapon] === botWeapon){
         console.log("Du hast gewonnen!");

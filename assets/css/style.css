@@ -1,0 +1,11 @@
+.rock::before{
+    content: "✊";
+}
+
+.paper::before{
+    content: "🖐️";
+}
+
+.scissors::before{
+    content: "✌️";
+}
