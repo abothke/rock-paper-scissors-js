@@ -5,7 +5,7 @@
 ## 🇩🇪 Deutsch
 
 ### Demo
-🔗 [rock-paper-scissors-js Anwendung](https://abothke.github.io/rock-paper-scissors/)
+🔗 [rock-paper-scissors-js Anwendung](https://abothke.github.io/rock-paper-scissors-js/)
 
 ### Hallo, wir sind Stefan & Andre! 👋
 🚀 **Über uns:** Auf dem Weg, Full-Stack-Entwickler zu werden...
@@ -21,7 +21,7 @@
 ## 🇺🇸 English
 
 ### Demo
-🔗 [rock-paper-scissors-js Application](https://abothke.github.io/rock-paper-scissors/)
+🔗 [rock-paper-scissors-js Application](https://abothke.github.io/rock-paper-scissors-js/)
 ### Hi, we're Stefan & Andre! 👋
 🚀 **About Us:** On our way to becoming Full-Stack Developers...
 
