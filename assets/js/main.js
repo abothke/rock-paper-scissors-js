@@ -11,8 +11,8 @@ const win = {
     "scissor": "paper"
 }
 
-const startUpSound = new Audio("./assets/sounds/startup.wav")
-const errorSound = new Audio("./assets/sounds/error.wav")
+const startUpSound = new AudioContext();
+const errorSound = new Audio("./assets/sounds/error.wav");
 const scoreOfRound = document.querySelector("#scoreRound")
 const domPlayerScore = document.querySelector("#playerScore")
 const domCpuScore = document.querySelector("#cpuScore")
@@ -99,10 +99,20 @@ restartPopup.addEventListener("click", () =>{
     location.reload()
 })
 
-document.querySelector("body").addEventListener("mousemove", () =>{
-if (booted === false){
-    startUpSound.play()
-    booted = true
-    console.log(booted);
-}
-})
+const playStartUpSound = async () => {
+    try {
+        const response = await fetch("./assets/sounds/startup.wav");
+        const arrayBuffer = await response.arrayBuffer();
+        const audioBuffer = await startUpSound.decodeAudioData(arrayBuffer);
+        const source = startUpSound.createBufferSource();
+        source.buffer = audioBuffer;
+        source.connect(startUpSound.destination);
+        source.start(0);
+    } catch (error) {
+        console.error("Fehler beim Abspielen des Start-Up-Sounds:", error);
+    }
+};
+
+window.addEventListener("load", () => {
+    playStartUpSound();
+});
