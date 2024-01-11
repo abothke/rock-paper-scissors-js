@@ -19,7 +19,7 @@ const domPlayerWeapon = document.querySelector("#player")
 const domCpuWeapon = document.querySelector("#computer")
 const domPlayerTitle = document.querySelector("#playerTitle")
 const domLetsPlay = document.querySelector("#letsPlay")
-
+const restartButton = document.querySelector("#restart")
 
 document.querySelectorAll("input[type='radio']").forEach((el) =>{
     el.addEventListener("change", () =>{
@@ -75,3 +75,6 @@ const startGame = (rounds, playerWeapon) => {
 }
 }
 
+restartButton.addEventListener("click", () =>{
+    location.reload()
+})

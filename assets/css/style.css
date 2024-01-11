@@ -35,7 +35,7 @@ body{
     justify-content: center;
 }
 
-#choices{
+#choices, #restart{
     cursor: pointer;
 }
 
