@@ -10,7 +10,7 @@ const win = {
     "scissor": "paper"
 }
 
-const errorSound = new Audio("./assets/sounds/error.mp3")
+const errorSound = new Audio("./assets/sounds/error.wav")
 const scoreOfRound = document.querySelector("#scoreRound")
 const domPlayerScore = document.querySelector("#playerScore")
 const domCpuScore = document.querySelector("#cpuScore")
