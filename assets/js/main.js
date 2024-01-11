@@ -108,11 +108,14 @@ const playStartUpSound = async () => {
         source.buffer = audioBuffer;
         source.connect(startUpSound.destination);
         source.start(0);
+        booted = true;
     } catch (error) {
         console.error("Fehler beim Abspielen des Start-Up-Sounds:", error);
     }
 };
 
-window.addEventListener("load", () => {
+window.addEventListener("click", () => {
+    if (booted === false){
     playStartUpSound();
+}
 });
