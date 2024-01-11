@@ -2,7 +2,6 @@ let playerWeapon, result, botWeapon
 let playerScore = 0;
 let cpuScore = 0;
 let currentRound = 1;
-
 let rounds = "5"
 const botWeapons = ["rock", "paper", "scissors"]
 const win = {
@@ -11,6 +10,7 @@ const win = {
     "scissor": "paper"
 }
 
+const errorSound = new Audio("./assets/sounds/error.mp3")
 const scoreOfRound = document.querySelector("#scoreRound")
 const domPlayerScore = document.querySelector("#playerScore")
 const domCpuScore = document.querySelector("#cpuScore")
@@ -69,14 +69,17 @@ const startGame = (rounds, playerWeapon) => {
     } else {
     domRounds.textContent = `${currentRound} / ${rounds}`
     if(playerScore > cpuScore){
+        errorSound.play()
         mainGame.style.display = "none"
         restarContainer.style.display = "flex"
         finishedGame.innerHTML = "<h3>You won! Want to play again?</h3>"
     } else if (playerScore < cpuScore){
+        errorSound.play()
         mainGame.style.display = "none"
         restarContainer.style.display = "flex"
         finishedGame.innerHTML = "<h3>You lose. Try Again</h3>"
     } else{
+        errorSound.play()
         mainGame.style.display = "none"
         restarContainer.style.display = "flex"
         finishedGame.innerHTML = "<h3>It's a draw! Try again</h3>"
