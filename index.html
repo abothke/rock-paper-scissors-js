@@ -3,10 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://unpkg.com/98.css" />
         <link rel="stylesheet" href="./assets/css/style.css">
         <title>tic-tac-toe-js</title>
     </head>
     <body>
+        <div class="window" id="mainGame">
+            <div class="title-bar">
+                <div class="title-bar-text">Rock, Paper, Scissors</div>
+                <div class="title-bar-controls">
+                    <button aria-label="Close"></button>
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                  </div>
+            </div>
+        <div class="window-body">
         <div id="roundContainer">
             <h2>How many rounds?</h2>
                 <div id="rounds">
@@ -39,8 +50,29 @@
             <div id="ch-scissors"><span class="emoji">✌️</span></div>
         </div>
             <h3>MAKE YOUR MOVE.</h3>
-            <p id="restart">restart</p>
+
         </div>
+    </div>
+        <div class="status-bar">
+            <p id="restart" class="status-bar-field restart">RESTART</p>
+            <p class="status-bar-field">rock-paper-scissors-js</p>
+            <p class="status-bar-field">CPU Usage: 14%</p>
+          </div>
+    </div>
+    <div class="window" style="width: 300px" id="restartContainer">
+        <div class="title-bar">
+          <div class="title-bar-text">Want to play again?</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <h3 id="finishedGame"></h3>
+          <button id="restartPopup">Play again?</button>
+        </div>
+      </div>
     <script src="./assets/js/main.js"></script>
     </body>
     </html>

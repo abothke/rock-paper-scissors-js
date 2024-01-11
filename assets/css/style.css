@@ -12,11 +12,21 @@ body{
     flex-direction: column;
     padding: 2rem;
     gap: 1rem;
+    background: #048284;
+}
+
+label{
+    font-size: 1.5rem;
+}
+
+input[type="radio"]{
+    font-size: 5rem;
 }
 
 #game{
     display: flex;
     flex-direction: column;
+    padding-top: 1rem;
 }
 
 #playerTitle{
@@ -26,8 +36,9 @@ body{
     display: none;
 }
 #roundContainer{
-    border: 3px solid black;
-    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 #choices, #letsPlay{
@@ -46,6 +57,7 @@ body{
 
 #players{
     display: flex;
+    justify-content: space-around;
     height: 100px;
 }
 
@@ -64,4 +76,25 @@ body{
 
 .emoji{
     font-size: 50px;
+}
+.window{
+    width: 50%;
+}
+
+.window-body{;
+}
+
+#restartContainer {
+    display: none;
+    flex-direction: column;
+}
+
+#restartPopup{
+    margin: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .window{
+        width: 100%;
+    }
 }

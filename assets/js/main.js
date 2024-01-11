@@ -20,6 +20,10 @@ const domCpuWeapon = document.querySelector("#computer")
 const domPlayerTitle = document.querySelector("#playerTitle")
 const domLetsPlay = document.querySelector("#letsPlay")
 const restartButton = document.querySelector("#restart")
+const finishedGame = document.querySelector("#finishedGame")
+const restarContainer = document.querySelector("#restartContainer")
+const mainGame = document.querySelector("#mainGame")
+const restartPopup = document.querySelector("#restartPopup")
 
 document.querySelectorAll("input[type='radio']").forEach((el) =>{
     el.addEventListener("change", () =>{
@@ -65,16 +69,26 @@ const startGame = (rounds, playerWeapon) => {
     } else {
     domRounds.textContent = `${currentRound} / ${rounds}`
     if(playerScore > cpuScore){
-        domLetsPlay.innerHTML = "<h3>You won! Want to play again?</h3>" 
+        mainGame.style.display = "none"
+        restarContainer.style.display = "flex"
+        finishedGame.innerHTML = "<h3>You won! Want to play again?</h3>"
     } else if (playerScore < cpuScore){
-        domLetsPlay.innerHTML = "<h3>You lose. Try Again</h3>"
+        mainGame.style.display = "none"
+        restarContainer.style.display = "flex"
+        finishedGame.innerHTML = "<h3>You lose. Try Again</h3>"
     } else{
-        domLetsPlay.innerHTML = "<h3>It's a draw! Try again</h3>"
+        mainGame.style.display = "none"
+        restarContainer.style.display = "flex"
+        finishedGame.innerHTML = "<h3>It's a draw! Try again</h3>"
     }
     console.log(cpuScore, playerScore);
 }
 }
 
 restartButton.addEventListener("click", () =>{
+    location.reload()
+})
+
+restartPopup.addEventListener("click", () =>{
     location.reload()
 })
