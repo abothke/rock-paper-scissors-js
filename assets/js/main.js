@@ -1,4 +1,8 @@
 let playerWeapon, result, botWeapon
+let playerScore = 0;
+let cpuScore = 0;
+let currentRound = 1;
+
 let rounds = "5"
 const botWeapons = ["rock", "paper", "scissors"]
 const win = {
@@ -6,6 +10,11 @@ const win = {
     "paper": "rock",
     "scissor": "paper"
 }
+
+const scoreOfRound = document.querySelector("#scoreRound")
+const domPlayerScore = document.querySelector("#playerScore")
+const domCpuScore = document.querySelector("#cpuScore")
+const domRounds = document.querySelector("#rounds")
 
 document.querySelectorAll("input[type='radio']").forEach((el) =>{
     el.addEventListener("change", () =>{
@@ -27,11 +36,24 @@ const startGame = (rounds, playerWeapon) => {
     botWeapon = botWeapons[weaponChoice]
     console.log(`Computer hat ${botWeapon} ausgewählt`);
     console.log(`${win[playerWeapon]} gewinnt gegen deine Waffe`);
+    if (currentRound != rounds){
     if (win[playerWeapon] === botWeapon){
         console.log("Du hast gewonnen!");
+        scoreOfRound.textContent = "Du hast gewonnen!"
+        playerScore++
+        domPlayerScore.textContent = playerScore
     } else if (playerWeapon === botWeapon){
         console.log("Unentschieden!");
+        scoreOfRound.textContent = "Unentschieden!"
     } else{
         console.log("Computer hat gewonnen");
+        scoreOfRound.textContent = "Du hast verloren!"
+        cpuScore++
+        domCpuScore.textContent = cpuScore
     }
+    currentRound++
+    console.log(currentRound);
+} else {
+    domRounds.textContent = "VORBEI"
+}
 }
