@@ -18,6 +18,9 @@ const domRounds = document.querySelector("#rounds")
 const domPlayerWeapon = document.querySelector("#player")
 const domCpuWeapon = document.querySelector("#computer")
 const domPlayerTitle = document.querySelector("#playerTitle")
+const domLetsPlay = document.querySelector("#letsPlay")
+
+
 document.querySelectorAll("input[type='radio']").forEach((el) =>{
     el.addEventListener("change", () =>{
     rounds = el.value
@@ -34,13 +37,14 @@ document.querySelectorAll("[id^=ch-]").forEach((el) =>{
 })
 
 const startGame = (rounds, playerWeapon) => {
-    if (currentRound-1 != rounds){
+    if (currentRound != rounds){
+    currentRound++
     let weaponChoice = Math.floor(Math.random() * botWeapons.length)
     domPlayerTitle.style.display = "flex"
     botWeapon = botWeapons[weaponChoice]
     console.log(`Computer hat ${botWeapon} ausgewählt`);
     console.log(`${win[playerWeapon]} gewinnt gegen deine Waffe`);
-    domRounds.textContent = `${currentRound} / ${rounds}`
+    domRounds.textContent = `${currentRound-1} / ${rounds}`
     domPlayerWeapon.className = `${playerWeapon} emoji`
     domCpuWeapon.className = `${botWeapon} emoji`
     if (win[playerWeapon] === botWeapon){
@@ -57,9 +61,17 @@ const startGame = (rounds, playerWeapon) => {
         cpuScore++
         domCpuScore.textContent = cpuScore
     }
-    currentRound++
     console.log(currentRound);
-} else {
-    // domRounds.textContent = "VORBEI"
+    } else {
+    domRounds.textContent = `${currentRound} / ${rounds}`
+    if(playerScore > cpuScore){
+        domLetsPlay.innerHTML = "Du hast gewonnen" 
+    } else if (playerScore < cpuScore){
+        domLetsPlay.innerHTML = "Du hast verloren"
+    } else{
+        domLetsPlay.innerHTML = "Unentschieden!"
+    }
+    console.log(cpuScore, playerScore);
 }
 }
+
