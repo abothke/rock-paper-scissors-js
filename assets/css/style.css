@@ -257,7 +257,7 @@ input[type="radio"]{
     pointer-events: none;
   }
   .crt {
-    animation: textShadow 1.6s infinite;
+    animation: textShadow 5s infinite;
   }
   
   .site-title {
