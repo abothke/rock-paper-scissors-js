@@ -81,9 +81,6 @@ input[type="radio"]{
     width: 50%;
 }
 
-.window-body{;
-}
-
 #restartContainer {
     display: none;
     flex-direction: column;
