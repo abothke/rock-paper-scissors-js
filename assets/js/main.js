@@ -9,6 +9,7 @@ const win = {
     "paper": "rock",
     "scissor": "paper"
 }
+
 const startUpSound = new Audio("./assets/sounds/startup.wav")
 const errorSound = new Audio("./assets/sounds/error.wav")
 const scoreOfRound = document.querySelector("#scoreRound")
@@ -25,7 +26,12 @@ const restarContainer = document.querySelector("#restartContainer")
 const mainGame = document.querySelector("#mainGame")
 const restartPopup = document.querySelector("#restartPopup")
 
-startUpSound.play();
+const boot = () =>{
+    startUpSound.play()
+}
+
+boot();
+
 
 document.querySelectorAll("input[type='radio']").forEach((el) =>{
     el.addEventListener("change", () =>{
