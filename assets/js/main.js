@@ -36,6 +36,7 @@ const startGame = (rounds, playerWeapon) => {
     botWeapon = botWeapons[weaponChoice]
     console.log(`Computer hat ${botWeapon} ausgewählt`);
     console.log(`${win[playerWeapon]} gewinnt gegen deine Waffe`);
+    domRounds.textContent = `${currentRound} / ${rounds}`
     if (currentRound != rounds){
     if (win[playerWeapon] === botWeapon){
         console.log("Du hast gewonnen!");
@@ -54,6 +55,6 @@ const startGame = (rounds, playerWeapon) => {
     currentRound++
     console.log(currentRound);
 } else {
-    domRounds.textContent = "VORBEI"
+    // domRounds.textContent = "VORBEI"
 }
 }
