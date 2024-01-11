@@ -1,4 +1,5 @@
 let playerWeapon, result, botWeapon
+let booted = false;
 let playerScore = 0;
 let cpuScore = 0;
 let currentRound = 1;
@@ -25,12 +26,6 @@ const finishedGame = document.querySelector("#finishedGame")
 const restarContainer = document.querySelector("#restartContainer")
 const mainGame = document.querySelector("#mainGame")
 const restartPopup = document.querySelector("#restartPopup")
-
-const boot = () =>{
-    startUpSound.play()
-}
-
-boot();
 
 
 document.querySelectorAll("input[type='radio']").forEach((el) =>{
@@ -102,4 +97,12 @@ restartButton.addEventListener("click", () =>{
 
 restartPopup.addEventListener("click", () =>{
     location.reload()
+})
+
+document.querySelector("body").addEventListener("mousemove", () =>{
+if (booted === false){
+    startUpSound.play()
+    booted = true
+    console.log(booted);
+}
 })
