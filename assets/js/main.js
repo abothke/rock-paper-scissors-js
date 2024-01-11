@@ -49,15 +49,15 @@ const startGame = (rounds, playerWeapon) => {
     domCpuWeapon.className = `${botWeapon} emoji`
     if (win[playerWeapon] === botWeapon){
         console.log("Du hast gewonnen!");
-        scoreOfRound.textContent = "Du hast gewonnen!"
+        scoreOfRound.textContent = `${playerWeapon} beats ${botWeapon}. You win!`
         playerScore++
         domPlayerScore.textContent = playerScore
     } else if (playerWeapon === botWeapon){
         console.log("Unentschieden!");
-        scoreOfRound.textContent = "Unentschieden!"
+        scoreOfRound.textContent = `It's a draw. You both chose ${playerWeapon}`
     } else{
         console.log("Computer hat gewonnen");
-        scoreOfRound.textContent = "Du hast verloren!"
+        scoreOfRound.textContent = `${botWeapon} beats ${playerWeapon}. You lose!`
         cpuScore++
         domCpuScore.textContent = cpuScore
     }
@@ -65,11 +65,11 @@ const startGame = (rounds, playerWeapon) => {
     } else {
     domRounds.textContent = `${currentRound} / ${rounds}`
     if(playerScore > cpuScore){
-        domLetsPlay.innerHTML = "Du hast gewonnen" 
+        domLetsPlay.innerHTML = "<h3>You won! Want to play again?</h3>" 
     } else if (playerScore < cpuScore){
-        domLetsPlay.innerHTML = "Du hast verloren"
+        domLetsPlay.innerHTML = "<h3>You lose. Try Again</h3>"
     } else{
-        domLetsPlay.innerHTML = "Unentschieden!"
+        domLetsPlay.innerHTML = "<h3>It's a draw! Try again</h3>"
     }
     console.log(cpuScore, playerScore);
 }

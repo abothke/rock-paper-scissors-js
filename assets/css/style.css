@@ -46,6 +46,7 @@ body{
 
 #players{
     display: flex;
+    height: 100px;
 }
 
 .rock::before{
